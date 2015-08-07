@@ -267,7 +267,7 @@ class Vault(object):
         return archive_id
 
     def retrieve_archive(self, archive_id, sns_topic=None,
-                         description=None):
+                         description=None, byte_range=None):
         """
         Initiate a archive retrieval job to download the data from an
         archive. You will need to wait for the notification from
@@ -294,6 +294,8 @@ class Vault(object):
             job_data['SNSTopic'] = sns_topic
         if description is not None:
             job_data['Description'] = description
+        if byte_range is not None:
+            job_data['RetrievalByteRange'] = byte_range
 
         response = self.layer1.initiate_job(self.name, job_data)
         return self.get_job(response['JobId'])

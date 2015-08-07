@@ -41,6 +41,7 @@ class Job(object):
                             ('InventorySizeInBytes', 'inventory_size', 0),
                             ('JobDescription', 'description', None),
                             ('JobId', 'id', None),
+                            ('RetrievalByteRange', 'byte_range', None),
                             ('SHA256TreeHash', 'sha256_treehash', None),
                             ('SNSTopic', 'sns_topic', None),
                             ('StatusCode', 'status_code', None),
